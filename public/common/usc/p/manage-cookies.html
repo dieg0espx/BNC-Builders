@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cookie Consent Banner</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet" />
+        <style>
+			:host {
+				all: initial;
+				font-family: "Inter", sans-serif;
+				font-size: 16px;
+				line-height: normal;
+				color: #191919;
+			}
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Cookie Banner */
+            .cookie-banner {
+                display: none;
+                font-family: "Inter", sans-serif;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #fff;
+                box-shadow: 0 -4px 3px 0 rgba(0, 0, 0, 0.05);
+                padding: 0.75em 1.5em;
+                z-index: 1000;
+                color: #000;
+                font-size: 0.875em;
+                font-weight: 400;
+            }
+            .cookie-banner.active {
+                display: block;
+            }
+
+            .cookie-banner__content {
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1em;
+            }
+
+            .cookie-banner__text {
+                max-width: 1200px;
+                flex: 1;
+            }
+
+            .cookie-banner__text a {
+                color: #000;
+                text-decoration: none;
+                font-weight: 700;
+            }
+
+            .cookie-banner__actions {
+                display: flex;
+                gap: 0.75em;
+                align-items: center;
+            }
+
+            .cookie-banner__btn--primary {
+                font-family: "Inter", sans-serif;
+                border-radius: 0.5em;
+                border: 1px solid #bcbec7;
+                background: #fff;
+                color: #191919;
+                padding: 0.375em 0.75em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1em;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.5em;
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+
+            .cookie-banner__btn--primary:hover,
+            .cookie-banner__btn--primary:focus {
+                border-color: #d1d3dc;
+                color: #626265;
+            }
+
+            .btn--close {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0.25em;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s;
+            }
+
+            .btn--close:hover,
+            .btn--close:focus {
+                background: #f0f0f0;
+            }
+
+            .cookie-banner__text a:focus,
+            .cookie-banner__btn--primary:focus,
+            .btn--close:focus {
+                outline: 1px solid #007ffd;
+                outline-offset: -1px;
+            }
+
+            /* Cookie Modal */
+            .cookie-modal {
+                font-family: "Inter", system-ui, -apple-system, sans-serif;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 31.875em;
+                max-height: 80vh;
+                overflow: hidden;
+                border-radius: 0.625em;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                background: #fff;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+                z-index: 1001;
+                display: none;
+            }
+
+            .cookie-modal--active {
+                display: block;
+                animation: fadeIn 0.3s ease-out;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -45%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .cookie-modal__header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.5em;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .cookie-modal__header-group {
+                display: flex;
+                align-items: center;
+                gap: 0.75em;
+            }
+
+            .cookie-modal__title {
+                font-size: 1em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.5em;
+                letter-spacing: -0.312px;
+            }
+
+            .cookie-modal__subtitle {
+                color: #62748e;
+                font-size: 0.875em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.25em;
+                letter-spacing: -0.15px;
+            }
+
+            .cookie-modal__content {
+                padding: 1.5em;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5em;
+                overflow-y: auto;
+                max-height: calc(80vh - 11.125em);
+            }
+
+            .cookie-modal__intro {
+                color: #45556c;
+                font-size: 1em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.5em;
+                letter-spacing: -0.312px;
+            }
+
+            .cookie-modal__content h4 {
+                font-family: "Inter", sans-serif;
+                color: #0f172b;
+                font-size: 1.125em;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.688em;
+                letter-spacing: -0.439px;
+            }
+
+            /* Accordions */
+            .accordion-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75em;
+            }
+
+            .accordion {
+                border: 1px solid #e2e8f0;
+                border-radius: 0.625em;
+                overflow: hidden;
+            }
+
+            .accordion__header {
+                padding: 1em;
+                background: #f8fafc;
+                border: none;
+                width: 100%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1em;
+                border-radius: 0.625em;
+            }
+
+            .accordion__header[aria-expanded="true"] {
+                border-bottom: 1px solid #e2e8f0;
+                border-radius: 0.625em 0.625em 0 0;
+            }
+
+            .accordion__header:focus {
+                outline: 1px solid #007ffd;
+                outline-offset: -1px;
+            }
+
+            .accordion__title {
+                display: flex;
+                align-items: center;
+                gap: 0.75em;
+                flex: 1;
+                color: #0f172b;
+                font-size: 1em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.5em;
+                letter-spacing: -0.312px;
+            }
+
+            .accordion__icon {
+                transition: transform 0.3s ease;
+            }
+
+            .accordion__header[aria-expanded="true"] .accordion__icon {
+                transform: rotate(180deg);
+            }
+
+            .accordion__toggle-label {
+                font-family: "Inter", sans-serif;
+                color: #007ffd;
+                font-size: 0.875em;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.25em;
+                letter-spacing: -0.15px;
+                white-space: nowrap;
+            }
+
+            .accordion__toggle {
+                position: relative;
+                width: 2.625em;
+                height: 1.5em;
+                flex-shrink: 0;
+            }
+
+            .accordion__toggle-input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                position: absolute;
+            }
+
+            .accordion__toggle-slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 4.762em;
+            }
+
+            .accordion__toggle-slider:before {
+                position: absolute;
+                content: "";
+                height: 1.125em;
+                width: 1.125em;
+                left: 0.1875em;
+                top: 50%;
+                transform: translate(0, -50%);
+                background-color: white;
+                transition: 0.4s;
+                border-radius: 50%;
+                box-shadow: 0 1px 6px rgba(25, 25, 25, 0.2);
+            }
+
+            .accordion__toggle-input:checked + .accordion__toggle-slider {
+                background-color: #007ffd;
+            }
+
+            .accordion__toggle-input:checked
+                + .accordion__toggle-slider:before {
+                transform: translate(1.125em, -50%);
+            }
+
+            .accordion__toggle-input:focus + .accordion__toggle-slider {
+                box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+            }
+
+            .accordion__content {
+                padding: 0 1em;
+                max-height: 0;
+                opacity: 0;
+                transform: translateY(-10px);
+                overflow: hidden;
+                transition: all 0.3s ease;
+                background: white;
+            }
+
+            .accordion__content--expanded {
+                padding: 1em;
+                max-height: 31.25em;
+                opacity: 1;
+                transform: translateY(0);
+                border-radius: 0 0 0.625em 0.625em;
+            }
+
+            .accordion__desc {
+                color: #45556c;
+                font-size: 0.875em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.25em;
+                letter-spacing: -0.15px;
+            }
+
+            .cookie-modal__footer {
+                display: flex;
+                justify-content: center;
+                padding: 1.5em;
+                flex-shrink: 0;
+                width: 100%;
+                border-top: 1px solid #e2e8f0;
+                background: #f8fafc;
+            }
+
+            .cookie-modal__save {
+                font-family: "Inter", sans-serif;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.375em 0.75em;
+                border-radius: 0.5em;
+                border: none;
+                background: #007ffd;
+                outline: none;
+                color: #fff;
+                font-size: 1em;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.5em;
+                transition: background 0.3s ease 0s;
+            }
+
+            .cookie-modal__save:hover,
+            .cookie-modal__save:focus {
+                background: #66aeff;
+            }
+
+            /* Overlay */
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                display: none;
+            }
+
+            .overlay--active {
+                display: block;
+            }
+
+            .visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .cookie-modal {
+                    width: 95%;
+                }
+
+                .cookie-banner__content {
+                    flex-direction: column;
+                }
+
+                .cookie-banner__actions {
+                    justify-content: center;
+                    width: 100%;
+                }
+
+                .cookie-banner__btn {
+                    flex: 1;
+                }
+
+                .cookie-modal__header,
+                .cookie-modal__content,
+                .cookie-modal__footer {
+                    padding: 1em;
+                }
+
+                .accordion__title {
+                    font-size: 1em;
+                    margin-bottom: 0.5em;
+                    flex: 1 1 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div aria-live="polite">
+            <!-- Cookie Banner -->
+            <div class="cookie-banner" id="cookieBanner">
+                <div class="cookie-banner__content">
+                    <span class="cookie-banner__text">
+                        This website uses tracking technologies to enhance user experience
+                        and to analyze performance. By clicking “Accept”, you consent to
+                        share information about your visit with third parties.
+                        <a href="/privacy-policy">Privacy Policy</a>.
+                    </span>
+                    <div class="cookie-banner__actions">
+                        <button class="cookie-banner__btn--primary" data-action="Accept">
+                            Accept
+                        </button>
+                        <button class="cookie-banner__btn--primary" data-action="Manage">
+                            Manage Cookies
+                        </button>
+                        <!--<button class="cookie-banner__btn--primary" data-action="DoNotSell">
+                            Do Not Sell/Share
+                        </button>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookie Modal -->
+            <div class="cookie-modal" id="cookieModal">
+                <div class="cookie-modal__header">
+                    <div class="cookie-modal__header-group">
+                        <svg width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                fill="none">
+                            <rect width="40"
+                                    height="40"
+                                    rx="10"
+                                    fill="#007FFD" />
+                            <path d="M29.8901 22.7112C29.8901 24.453 29.0231 26.0825 27.5702 27.0458L22.1038 30.6901C20.988 31.4366 19.5271 31.4366 18.4113 30.6901L12.9448 27.0458C11.4919 26.0745 10.625 24.453 10.625 22.7112V12.8699C10.625 12.3722 10.9942 11.9468 11.4919 11.8906C13.1455 11.6739 14.767 11.2324 16.3082 10.5902C17.3919 10.1487 18.4354 9.61091 19.4307 8.98479C19.9365 8.67174 20.5786 8.67174 21.0843 8.98479C22.0797 9.61091 23.1232 10.1487 24.2069 10.5902C25.7481 11.2324 27.3696 11.6739 29.0231 11.8906C29.5208 11.9468 29.8901 12.3722 29.8901 12.8699V22.7112Z"
+                                    fill="#1FD7FF" />
+                        </svg>
+                        <div>
+                            <h2 class="cookie-modal__title">Manage Cookies</h2>
+                            <h3 class="cookie-modal__subtitle">
+                                Managing your privacy preferences
+                            </h3>
+                        </div>
+                    </div>
+                    <button class="btn--close"
+                            data-action="CloseModal"
+                            aria-label="Close cookie preferences">
+                        <svg width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none">
+                            <path fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M18.707 6.707a1 1 0 00-1.414-1.414L12 10.586 6.707 5.293a1 1 0 00-1.414 1.414L10.586 12l-5.293 5.293a1 1 0 101.414 1.414L12 13.414l5.293 5.293a1 1 0 001.414-1.414L13.414 12l5.293-5.293z"
+                                    fill="#626265" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="cookie-modal__content">
+                    <p class="cookie-modal__intro">
+                        We use cookies and scripts to improve site performance, understand
+                        how you use our site, and deliver relevant content and advertising.
+                        You can choose which types of cookies to allow. Essential cookies
+                        are necessary for the site to function and cannot be turned off.
+                    </p>
+                    <h4>Manage Your Consent Preferences</h4>
+                    <div class="accordion-list" aria-live="polite">
+                        <!-- Essential Cookies Accordion -->
+                        <div class="accordion">
+                            <div class="accordion__header"
+                                    aria-expanded="false">
+                                <span class="accordion__title">
+                                    <span class="accordion__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                width="10"
+                                                height="6"
+                                                viewBox="0 0 10 6"
+                                                fill="none">
+                                            <path d="M0.666504 0.666687L4.6665 4.66669L8.6665 0.666687"
+                                                    stroke="#45556C"
+                                                    stroke-width="1.33333"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Essential Cookies
+                                </span>
+                                <span class="accordion__toggle-label">
+                                    Always Active
+                                </span>
+                            </div>
+                            <div class="accordion__content">
+                                <p class="accordion__desc">
+                                    These cookies are required for core website functions,
+                                    such as secure login, privacy opt-outs, page navigation,
+                                    and submitting forms, and cannot be turned off.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Analytics Cookies Accordion -->
+                        <div class="accordion">
+                            <div class="accordion__header"
+                                    aria-expanded="false">
+                                <span class="accordion__title">
+                                    <span class="accordion__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                width="10"
+                                                height="6"
+                                                viewBox="0 0 10 6"
+                                                fill="none">
+                                            <path d="M0.666504 0.666687L4.6665 4.66669L8.6665 0.666687"
+                                                    stroke="#45556C"
+                                                    stroke-width="1.33333"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Analytics Cookies
+                                </span>
+                                <label class="accordion__toggle">
+                                    <input type="checkbox"
+                                            class="accordion__toggle-input"
+                                            id="analyticsToggle"
+                                            checked />
+                                    <span class="accordion__toggle-slider"></span>
+                                    <span class="visually-hidden">
+                                        Toggle analytics cookies
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="accordion__content">
+                                <p class="accordion__desc">
+                                    These cookies help us understand how visitors use our site
+                                    so we can measure and improve performance. They tell us
+                                    which pages are popular, how long people stay, and how they
+                                    navigate the site. This allows us to make improvements for
+                                    our visitors.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Marketing Cookies Accordion -->
+                        <div class="accordion">
+                            <div class="accordion__header"
+                                    aria-expanded="false">
+                                <span class="accordion__title">
+                                    <span class="accordion__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                width="10"
+                                                height="6"
+                                                viewBox="0 0 10 6"
+                                                fill="none">
+                                            <path d="M0.666504 0.666687L4.6665 4.66669L8.6665 0.666687"
+                                                    stroke="#45556C"
+                                                    stroke-width="1.33333"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Marketing Cookies
+                                </span>
+                                <label class="accordion__toggle">
+                                    <input type="checkbox"
+                                           class="accordion__toggle-input"
+                                           id="marketingToggle"
+                                           checked/>
+                                    <span class="accordion__toggle-slider"></span>
+                                    <span class="visually-hidden">
+                                        Toggle marketing cookies
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="accordion__content">
+                                <p class="accordion__desc">
+                                    These cookies are used to personalize the advertising you
+                                    see and may involve sharing information with our
+                                    advertising partners.
+
+                                    Turning this category off - or choosing
+                                    "Do Not Sell/Share" in the footer of the website - will
+                                    limit this sharing and reduce personalized ads.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cookie-modal__footer">
+                    <button class="cookie-modal__save" data-action="SaveChoices">
+                        Confirm & Save Choices
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" data-action="CloseModal"></div>
+
+    </body>
+</html>

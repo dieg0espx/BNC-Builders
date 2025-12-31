@@ -957,15 +957,15 @@ window.$consentState={analytics,marketing};
 				
 			</ul>
 		    
-	<div class="flx f_m f_c mrg_tp">
-        <a href="javascript:void('Prev')" disabled>
-            <svg viewBox="0 0 24 24"><use href="https://www.bncbuildersinc.com/cms/svg/site/636m76ra3tl.24.2512241200159.svg#scroll_left"></use></svg>
+	<div class="flx f_m f_c mrg_tp" style="gap: 15px; margin-top: 30px;">
+        <a href="javascript:void('Prev')" disabled style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #CF9C39; border-radius: 50%; cursor: pointer; opacity: 0.5;">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#CF9C39" stroke-width="2"><polyline points="15,18 9,12 15,6"></polyline></svg>
         </a>
-        <div class="mrg_lt mrg_rt">
+        <div class="mrg_lt mrg_rt" style="font-size: 16px; color: #333;">
         	<span>1</span> / <span>10</span>
         </div>
-        <a href="javascript:void('Next')">
-            <svg viewBox="0 0 24 24"><use href="https://www.bncbuildersinc.com/cms/svg/site/636m76ra3tl.24.2512241200159.svg#scroll_right"></use></svg>
+        <a href="javascript:void('Next')" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #CF9C39; border-radius: 50%; cursor: pointer;">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#CF9C39" stroke-width="2"><polyline points="9,6 15,12 9,18"></polyline></svg>
         </a>
     </div>
 
@@ -1317,6 +1317,131 @@ switch (document.readyState){
   break;
 }
 window.$afterConsent=ready;
+})();
+</script>
+<script>
+// Custom pagination handler for local blog using API
+(function() {
+  let currentPage = 1;
+  let totalPages = 10;
+
+  function updatePaginationUI() {
+    const paginationDiv = document.querySelector('.flx.f_m.f_c.mrg_tp');
+    if (!paginationDiv) return;
+
+    const spans = paginationDiv.querySelectorAll('span');
+    if (spans.length >= 1) spans[0].textContent = currentPage;
+    if (spans.length >= 2) spans[1].textContent = totalPages;
+
+    const prevBtn = paginationDiv.querySelector('a[href*="Prev"]');
+    const nextBtn = paginationDiv.querySelector('a[href*="Next"]');
+
+    if (prevBtn) {
+      if (currentPage <= 1) {
+        prevBtn.style.opacity = '0.5';
+        prevBtn.style.pointerEvents = 'none';
+      } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+      }
+    }
+
+    if (nextBtn) {
+      if (currentPage >= totalPages) {
+        nextBtn.style.opacity = '0.5';
+        nextBtn.style.pointerEvents = 'none';
+      } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      }
+    }
+  }
+
+  function renderPosts(posts) {
+    const container = document.getElementById('BlogSystemS1List');
+    if (!container) return;
+
+    const ul = container.querySelector('ul');
+    if (!ul) return;
+
+    ul.innerHTML = posts.map(post => `
+      <li class="flx fit" data-item="i">
+        <a class="full flx f_m f_clm bg-bx bdr-rds bx-sdw ulk-bg btn-clr-hvr" href="${post.url}" data-innertheme>
+          <picture class="sw-1280 img pd-h-56" role="presentation">
+            <img class="" src="${post.image}" alt="${post.title}">
+          </picture>
+          <div class="pd_v pd_h full">
+            <time class="fnt_t-k fnt_tc-k">${post.date}</time>
+            <strong class="fnt_pl">${post.title}</strong>
+          </div>
+        </a>
+      </li>
+    `).join('');
+  }
+
+  function loadPage(page) {
+    console.log('Loading page:', page);
+
+    const container = document.getElementById('BlogSystemS1List');
+    if (!container) {
+      console.error('Container not found');
+      return;
+    }
+
+    container.style.opacity = '0.5';
+
+    fetch('/api/blog?page=' + page + '&perPage=9')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Received data:', data);
+
+        if (data.posts && data.posts.length > 0) {
+          renderPosts(data.posts);
+          currentPage = data.page;
+          totalPages = data.totalPages;
+          updatePaginationUI();
+
+          // Scroll to top of blog section
+          container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        container.style.opacity = '1';
+      })
+      .catch(err => {
+        console.error('Pagination error:', err);
+        container.style.opacity = '1';
+      });
+  }
+
+  // Click handler
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('a');
+    if (!target) return;
+
+    const href = target.getAttribute('href') || '';
+
+    if (href.includes("void('Prev')") || href.includes("void('Next')")) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      console.log('Pagination click detected:', href);
+
+      if (href.includes('Prev') && currentPage > 1) {
+        loadPage(currentPage - 1);
+      } else if (href.includes('Next') && currentPage < totalPages) {
+        loadPage(currentPage + 1);
+      }
+    }
+  }, true);
+
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updatePaginationUI);
+  } else {
+    updatePaginationUI();
+  }
+
+  console.log('Blog pagination initialized');
 })();
 </script>
 </body>

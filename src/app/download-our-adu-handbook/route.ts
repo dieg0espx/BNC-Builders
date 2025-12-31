@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const html = readFileSync(
-    join(process.cwd(), "public", "download-our-adu-handbook.html"),
+    join(process.cwd(), "public", "download-our-adu-handbook", "index.html"),
     "utf-8"
   );
 

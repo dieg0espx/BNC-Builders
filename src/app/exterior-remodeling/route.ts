@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const html = readFileSync(
-    join(process.cwd(), "public", "exterior-remodeling.html"),
+    join(process.cwd(), "public", "exterior-remodeling", "index.html"),
     "utf-8"
   );
 

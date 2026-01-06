@@ -534,211 +534,147 @@ window.$consentState={analytics,marketing};
 </form>
 <script id="Process_HeaderV1" type="text/javascript" style="display:none;">window.Process&&Process.Page(['Process_HeaderV1','HeaderV1_1','HeaderV1_2','HeaderV1_3']);</script>
 </header>
-	<main id="MainZone"><form id="Form_ContactS1" method="post" enctype="multipart/form-data" action="/about-us/customer-referral-program/">
-<input type="hidden" name="_m_" value="ContactS1">
+	<main id="MainZone">
 <section class="ctc s4 pd_v full-mbl dk-bg blk-bg f_rev" id="ContactS1" data-onvisible="anm">
-	
 	<div class="mn_wd flx-at-1280 f_gp f_m f_rev" data-flexswap>
 		<div class="half bg-bx bdr-rds-dsk bx-sdw-dsk ta_ full-mbl anm_hlf-l alt-bg" data-innertheme>
 			<div class="pd_h pd_v">
-				<div class="" id="ContactS4Header">
-	
-		<header class="mrg_bt-40">
-			<h4>
-				
-				Refer A Friend!
-			</h4>
-			
-				<h5>
-					Refer &amp; Dine by BNC Builders
-				</h5>
-			
-			
-		</header>
-	
-</div>
-				<div id="ContactS4Form" class="ui-repeater ui-contact-form">
-	
-	
-	
-	
-		
-	
-	<fieldset data-item="i" data-key="">
-		<ul class="flx-at-700-grd-sml">
-			<li class="half">
-			    <div class="input-text">
-			    	<label for="ContactS4Form_ITM0_FirstName">First Name</label>
-			        <input required="required" type="text" id="ContactS4Form_ITM0_FirstName" class="ui-cms-input" name="ContactS4Form$ITM0$FirstName" value>
-			        <div class="validation" for="ContactS4Form_ITM0_FirstName" data-type="valueMissing">
-			            Please enter your first name.
-			        </div>
-			    </div>
-			</li>
-			<li class="half">
-			    <div class="input-text">
-			    	<label for="ContactS4Form_ITM0_LastName">Last Name</label>
-			        <input required="required" type="text" id="ContactS4Form_ITM0_LastName" class="ui-cms-input" name="ContactS4Form$ITM0$LastName" value>
-			        <div class="validation" for="ContactS4Form_ITM0_LastName" data-type="valueMissing">
-			            Please enter your last name.
-			        </div>
-			    </div>
-			</li>
-			<li class="half">
-				<div class="input-text">
-					<label for="ContactS4Form_ITM0_Phone">Phone</label>
-					<input required="required" type="tel" id="ContactS4Form_ITM0_Phone" pattern="\(\d{3}\) \d{3}-\d{4}" class="phone-mask ui-cms-input" name="ContactS4Form$ITM0$Phone" value>
-					<div class="validation" for="ContactS4Form_ITM0_Phone" data-type="valueMissing">
-			            Please enter your phone number.
-			        </div>
-			        <div class="validation" for="ContactS4Form_ITM0_Phone" data-type="typeMismatch">
-			            This isn't a valid phone number.
-			        </div>
+				<div id="ContactS4Header">
+					<header class="mrg_bt-40">
+						<h4>Refer A Friend!</h4>
+						<h5>Refer &amp; Dine by BNC Builders</h5>
+					</header>
 				</div>
-			</li>
-			<li class="half">
-				<div class="input-text">
-					<label for="ContactS4Form_ITM0_EmailAddress">Email</label>
-					<input required="required" type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" id="ContactS4Form_ITM0_EmailAddress" class="ui-cms-input" name="ContactS4Form$ITM0$EmailAddress" value>
-					<div class="validation" for="ContactS4Form_ITM0_EmailAddress" data-type="valueMissing">
-						Please enter your email address.
+				<div id="bnc-referral-form" class="ui-repeater ui-contact-form">
+					<fieldset>
+						<ul class="flx-at-700-grd-sml">
+							<li class="half">
+								<div class="input-text">
+									<label for="bnc_referrerFirstName">Your First Name</label>
+									<input required type="text" id="bnc_referrerFirstName" class="ui-cms-input">
+								</div>
+							</li>
+							<li class="half">
+								<div class="input-text">
+									<label for="bnc_referrerLastName">Your Last Name</label>
+									<input required type="text" id="bnc_referrerLastName" class="ui-cms-input">
+								</div>
+							</li>
+							<li class="half">
+								<div class="input-text">
+									<label for="bnc_referrerPhone">Your Phone</label>
+									<input required type="tel" id="bnc_referrerPhone" class="ui-cms-input" placeholder="(555) 555-5555">
+								</div>
+							</li>
+							<li class="half">
+								<div class="input-text">
+									<label for="bnc_referrerEmail">Your Email</label>
+									<input required type="email" id="bnc_referrerEmail" class="ui-cms-input">
+								</div>
+							</li>
+							<li class="full">
+								<div class="input-text">
+									<label for="bnc_referredName">Full name of the person you are referring</label>
+									<input required type="text" id="bnc_referredName" class="ui-cms-input">
+								</div>
+							</li>
+							<li class="half">
+								<div class="input-text">
+									<label for="bnc_referredPhone">Their Phone</label>
+									<input type="tel" id="bnc_referredPhone" class="ui-cms-input" placeholder="(555) 555-5555">
+								</div>
+							</li>
+							<li class="half">
+								<div class="input-text">
+									<label for="bnc_referredEmail">Their Email</label>
+									<input type="email" id="bnc_referredEmail" class="ui-cms-input">
+								</div>
+							</li>
+							<li class="full">
+								<div class="inp-mrk">
+									<small>By submitting, you agree to receive text messages from BNC Builders Inc. at the number provided. Consent is not a condition of purchase. Msg &amp; data rates may apply. <a href="https://www.scorpion.co/acceptable-use-policy/" target="_blank" rel="nofollow"><u>Acceptable Use Policy</u></a></small>
+								</div>
+							</li>
+						</ul>
+					</fieldset>
+					<div class="mrg_tp-40">
+						<button class="btn form-btn v1" type="button" id="bnc_referralBtn">Submit Referral</button>
 					</div>
-					<div class="validation" for="ContactS4Form_ITM0_EmailAddress" data-type="typeMismatch">
-						This isn't a valid email address.
-					</div>
+					<div id="bnc_referralStatus" style="margin-top: 1rem;"></div>
 				</div>
-			</li>
-			<li class="full">
-			    <div class="input-text">
-			    	<label for="ContactS4Form_ITM0_referralFullName">Full name of the person you are referring</label>
-			        <input required="required" type="text" id="ContactS4Form_ITM0_referralFullName" class="ui-cms-input" name="ContactS4Form$ITM0$referralFullName" value>
-			        <div class="validation" for="ContactS4Form_ITM0_referralFullName" data-type="valueMissing">
-			            Please enter full name.
-			        </div>
-			    </div>
-			</li>
-			<li class="full">
-				<div class="input-text">
-					<label for="ContactS4Form_ITM0_referralPhone">Phone number of the person you are referring</label>
-					<input required="required" type="tel" id="ContactS4Form_ITM0_referralPhone" pattern="\(\d{3}\) \d{3}-\d{4}" class="phone-mask ui-cms-input" name="ContactS4Form$ITM0$referralPhone" value>
-					<div class="validation" for="ContactS4Form_ITM0_referralPhone" data-type="valueMissing">
-			            Please enter your phone number.
-			        </div>
-			        <div class="validation" for="ContactS4Form_ITM0_referralPhone" data-type="typeMismatch">
-			            This isn't a valid phone number.
-			        </div>
-				</div>
-			</li>
-			<li class="full">
-				<div class="input-text">
-					<label for="ContactS4Form_ITM0_referralEmailAddress">Email address of the person you are referring</label>
-					<input required="required" type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" id="ContactS4Form_ITM0_referralEmailAddress" class="ui-cms-input" name="ContactS4Form$ITM0$referralEmailAddress" value>
-					<div class="validation" for="ContactS4Form_ITM0_referralEmailAddress" data-type="valueMissing">
-						Please enter your email address.
-					</div>
-					<div class="validation" for="ContactS4Form_ITM0_referralEmailAddress" data-type="typeMismatch">
-						This isn't a valid email address.
-					</div>
-				</div>
-			</li>
-			<li class="captcha full">
-			    <div class="verify-cont">
-			        <span class="field-cap"></span>
-			    </div>
-			    <div class="input-text">
-				    <label class="contactlabel captcha" for="Verification"> Please enter the captcha above:</label>
-				        <input required class="verification" type="text" autocomplete="off">
-				        <input disabled class="hidden-cap" id="AField" style="display: none" value="Thanks" type="text" autocomplete="off">
-			    </div>
-			</li> 
-			<li class="full">
-				<div class="inp-mrk">
-					<input type="hidden" id="Consent" required="" checked="">
-					<small>By submitting, you agree to receive text messages from BNC Builders Inc. at the number provided, including those related to your inquiry, follow-ups, and review requests, via automated technology. 
-	Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency may vary. Reply STOP to cancel or HELP for assistance. 
-	<a href="https://www.scorpion.co/acceptable-use-policy/" target="_blank" rel="nofollow"><u>Acceptable Use Policy</u></a></small>
-				</div>
-			</li>
-		</ul>
-	</fieldset>
-	
-		<input id="ContactS4Form_ITM0_StreetAddress" type="hidden" class="ui-cms-input" name="ContactS4Form$ITM0$StreetAddress" value data-ga-target="address">
-		<input id="ContactS4Form_ITM0_City" type="hidden" class="ui-cms-input" name="ContactS4Form$ITM0$City" value data-ga-target="city">
-		<input id="ContactS4Form_ITM0_State" type="hidden" class="ui-cms-input" name="ContactS4Form$ITM0$State" value data-ga-target="state">
-		<input id="ContactS4Form_ITM0_ZipCode" type="hidden" class="ui-cms-input" name="ContactS4Form$ITM0$ZipCode" value data-ga-target="zipcode">
-	
-	<input id="ContactS4Form_ITM0_FFD6" type="hidden" class="ui-cms-input" name="ContactS4Form$ITM0$FFD6" value data-item="i" data-key="">
-	<div class="mrg_tp-40 ">
-	<button class="btn form-btn v1" type="submit" disabled id="ContactS4Form_ITM0_ctl15" name="ContactS4Form$ITM0$ctl15" data-commandname="Update">Send Message</button>
-	
-</div>
-</div>
-    <script>
-                let captcha = '';
-                let single = '';
-                let captchaField = document.querySelectorAll('.field-cap');
-                let hiddenField = document.querySelectorAll('.hidden-cap');
-                let verificationField = document.querySelectorAll('.captcha .verification');
-                let submitButton = document.querySelectorAll('.form-btn');
-                console.log('hello', captcha, captchaField)           
-                function getLetters() {
-                    captcha = Math.random()
-                        .toString(36)
-                        .toUpperCase()
-                        .substring(2, 7);
-                    single = captcha.split('');
-                    if (!!captcha.match('0|O|1|A|E|O|U|I|L')) {
-                        getLetters();
-                    }
-               }
-                function placeCaps() {
-                    getLetters();
-                    captchaField.forEach((cfield) => {
-                        cfield.innerText = captcha;
-                    });
-                }
-                function validateCap() {
-                    captchaField.forEach((cfield) => {
-                        if (
-                            verificationField.value.toLowerCase() ===
-                            captcha.toLowerCase()
-                        ) {
-                            hiddenField.forEach((hfield) => {
-                                hfield.value = '';
-                                hfield.trigger('blur');
-                            });
-                        } else {
-                            return;
-                        }
-                    });
-                }
-                placeCaps();       
-                for (let i=0; i < verificationField.length; i++) {
-                    verificationField[i].addEventListener('change', ()=> {
-                        console.log('test')
-                        if (verificationField[i].value.toUpperCase() === captchaField[i].innerText) {
-                            console.log('true')
-                            submitButton[i].removeAttribute('disabled');
-                            submitButton[i].classList.add('active');
-                    } else {
-                        console.log('false')
-                    }          
-                    })
-                }
-    </script>
 			</div>
 		</div>
 		<div class="half mbl-fx">
-			<div class="cnt-stl " id="ContactS4ContentContent" data-content="true" data-inject="block" data-skip><h1>Customer Referral Program</h1><h2>Refer &amp; Dine by BNC Builders<img src="https://res.cloudinary.com/dku1gnuat/image/upload/v1767045244/BNC-BUILDERS/images_Refer-and-Dine-BNC-pic.2506231131021.jpg" alt="Customers using the Customer Referral program at dinner"></h2><p>Thank you for being part of the BNC Builders community.</p><p>For every person you refer who signs a contract with us, you'll receive a free dinner for two at Vintana Wine + Dine.<br><em>Just fill out this short form to submit your referral.&nbsp;</em></p></div>
-
-					<div id="ContactS4ContentButton">
-	
-</div>
-				
+			<div class="cnt-stl" id="ContactS4ContentContent" data-content="true" data-inject="block" data-skip>
+				<h1>Customer Referral Program</h1>
+				<h2>Refer &amp; Dine by BNC Builders<img src="https://res.cloudinary.com/dku1gnuat/image/upload/v1767045244/BNC-BUILDERS/images_Refer-and-Dine-BNC-pic.2506231131021.jpg" alt="Customers using the Customer Referral program at dinner"></h2>
+				<p>Thank you for being part of the BNC Builders community.</p>
+				<p>For every person you refer who signs a contract with us, you'll receive a free dinner for two at Vintana Wine + Dine.<br><em>Just fill out this short form to submit your referral.</em></p>
+			</div>
 		</div>
 	</div>
 </section>
-</form><section class="aws s1 lt-bg pd_v" id="AwardsS2" data-role="scroller" data-onvisible="anm">
+<script>
+(function() {
+	var btn = document.getElementById('bnc_referralBtn');
+	var status = document.getElementById('bnc_referralStatus');
+
+	btn.addEventListener('click', async function() {
+		var referrerFirstName = document.getElementById('bnc_referrerFirstName').value.trim();
+		var referrerLastName = document.getElementById('bnc_referrerLastName').value.trim();
+		var referrerPhone = document.getElementById('bnc_referrerPhone').value.trim();
+		var referrerEmail = document.getElementById('bnc_referrerEmail').value.trim();
+		var referredName = document.getElementById('bnc_referredName').value.trim();
+		var referredPhone = document.getElementById('bnc_referredPhone').value.trim();
+		var referredEmail = document.getElementById('bnc_referredEmail').value.trim();
+
+		if (!referrerFirstName || !referrerLastName || !referrerPhone || !referrerEmail || !referredName) {
+			status.innerHTML = '<p style="color: #f44336; font-weight: bold;">Please fill in all required fields.</p>';
+			return;
+		}
+
+		btn.disabled = true;
+		btn.textContent = 'Sending...';
+
+		try {
+			var response = await fetch('/api/referral', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					referrerFirstName: referrerFirstName,
+					referrerLastName: referrerLastName,
+					referrerPhone: referrerPhone,
+					referrerEmail: referrerEmail,
+					referredName: referredName,
+					referredPhone: referredPhone,
+					referredEmail: referredEmail
+				})
+			});
+
+			var result = await response.json();
+
+			if (response.ok) {
+				status.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">Thank you for your referral! We appreciate your recommendation and will reach out to them soon.</p>';
+				document.getElementById('bnc_referrerFirstName').value = '';
+				document.getElementById('bnc_referrerLastName').value = '';
+				document.getElementById('bnc_referrerPhone').value = '';
+				document.getElementById('bnc_referrerEmail').value = '';
+				document.getElementById('bnc_referredName').value = '';
+				document.getElementById('bnc_referredPhone').value = '';
+				document.getElementById('bnc_referredEmail').value = '';
+			} else {
+				status.innerHTML = '<p style="color: #f44336; font-weight: bold;">Error: ' + (result.error || 'Failed to submit referral. Please try again.') + '</p>';
+			}
+		} catch (err) {
+			status.innerHTML = '<p style="color: #f44336; font-weight: bold;">Error: Failed to submit referral. Please try again.</p>';
+		}
+
+		btn.disabled = false;
+		btn.textContent = 'Submit Referral';
+	});
+})();
+</script>
+<section class="aws s1 lt-bg pd_v" id="AwardsS2" data-role="scroller" data-onvisible="anm">
 	
 	<picture class=" img-bg" role="presentation">
 	

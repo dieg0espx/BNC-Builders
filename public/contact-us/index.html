@@ -534,212 +534,150 @@ window.$consentState={analytics,marketing};
 </form>
 <script id="Process_HeaderV1" type="text/javascript" style="display:none;">window.Process&&Process.Page(['Process_HeaderV1','HeaderV1_1','HeaderV1_2','HeaderV1_3']);</script>
 </header>
-	<main id="MainZone"><form id="Form_ContactS3" method="post" enctype="multipart/form-data" action="/contact-us/">
-<input type="hidden" name="_m_" value="ContactS3">
+	<main id="MainZone">
 <section class="ctc s3 pd_v full-mbl dk-bg f_rev" id="ContactS3" data-onvisible="anm">
-	
 	<div class="mn_wd flx-at-1280 f_gp f_m f_rev" data-flexswap>
 		<div class="half bg-bx ulk-bg ta_c full-mbl anm_hlf-l" data-innertheme>
 			<div class="pd_h pd_v">
-				<div class="" id="ContactS3Header">
-	
-		<header class="mrg_bt-40">
-			<h4>
-				
-				Contact BNC Builders Inc. Today!
-			</h4>
-			
-			
-				<p class="mrg_bt-0">A member of our team will be in touch shortly to confirm your contact details or address questions you may have.</p>
-			
-		</header>
-	
-</div>
+				<div id="ContactS3Header">
+					<header class="mrg_bt-40">
+						<h4>Contact BNC Builders Inc. Today!</h4>
+						<p class="mrg_bt-0">A member of our team will be in touch shortly to confirm your contact details or address questions you may have.</p>
+					</header>
+				</div>
 				<div id="ContactS3Form" class="ui-repeater ui-contact-form">
-	
-	
-	
-	
-		
-	
-	<fieldset data-item="i" data-key="">
-		<ul class="flx-at-700-grd-sml">
-			<li class="half">
-			    <div class="input-text">
-			    	<label for="ContactS3Form_ITM0_FirstName">First Name</label>
-			        <input required="required" type="text" id="ContactS3Form_ITM0_FirstName" class="ui-cms-input" name="ContactS3Form$ITM0$FirstName" value>
-			        <div class="validation" for="ContactS3Form_ITM0_FirstName" data-type="valueMissing">
-			            Please enter your first name.
-			        </div>
-			    </div>
-			</li>
-			<li class="half">
-			    <div class="input-text">
-			    	<label for="ContactS3Form_ITM0_LastName">Last Name</label>
-			        <input required="required" type="text" id="ContactS3Form_ITM0_LastName" class="ui-cms-input" name="ContactS3Form$ITM0$LastName" value>
-			        <div class="validation" for="ContactS3Form_ITM0_LastName" data-type="valueMissing">
-			            Please enter your last name.
-			        </div>
-			    </div>
-			</li>
-			<li class="half">
-				<div class="input-text">
-					<label for="ContactS3Form_ITM0_Phone">Phone</label>
-					<input required="required" type="tel" id="ContactS3Form_ITM0_Phone" pattern="\(\d{3}\) \d{3}-\d{4}" class="phone-mask ui-cms-input" name="ContactS3Form$ITM0$Phone" value>
-					<div class="validation" for="ContactS3Form_ITM0_Phone" data-type="valueMissing">
-			            Please enter your phone number.
-			        </div>
-			        <div class="validation" for="ContactS3Form_ITM0_Phone" data-type="typeMismatch">
-			            This isn't a valid phone number.
-			        </div>
-				</div>
-			</li>
-			<li class="half">
-				<div class="input-text">
-					<label for="ContactS3Form_ITM0_EmailAddress">Email</label>
-					<input required="required" type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" id="ContactS3Form_ITM0_EmailAddress" class="ui-cms-input" name="ContactS3Form$ITM0$EmailAddress" value>
-					<div class="validation" for="ContactS3Form_ITM0_EmailAddress" data-type="valueMissing">
-						Please enter your email address.
-					</div>
-					<div class="validation" for="ContactS3Form_ITM0_EmailAddress" data-type="typeMismatch">
-						This isn't a valid email address.
-					</div>
-				</div>
-			</li>
-			
-				<li class="full">
-				    <div class="input-text">
-				    	<label for="ContactS3Form_ITM0_Address">Address</label>
-				        <input type="text" id="ContactS3Form_ITM0_Address" class="ui-cms-input" name="ContactS3Form$ITM0$Address" value data-ga-search="fulladdress">
-				        <input class="hd" id="GoogleAddress" type="checkbox" required="required" data-ga-target="googleaddress">
-				        <div class="validation" for="ContactS3Form_ITM0_GoogleAddress" data-type="valueMissing">
-				            Please lookup your address.
-				        </div>
-				    </div>
-				</li>
-			
-			<li class="sel full">
-				<div class="input-text">
-					<label for="ContactS3Form_ITM0_LeadTypeID">Are you a new customer?</label>
-					<select required="required" id="ContactS3Form_ITM0_LeadTypeID" class="ui-cms-select ui-cms-input" name="ContactS3Form$ITM0$LeadTypeID">
-						<option value=""></option>
-						<option value="1">Yes, I am a potential new customer</option>
-						<option value="11">No, I'm a current existing customer</option>
-						<option value="13">I'm neither.</option>
-					</select>
-					<svg viewBox="0 0 24 24" role="presentation"><use href="https://res.cloudinary.com/dku1gnuat/image/upload/v1767036007/BNC-BUILDERS/cms_svg_site_636m76ra3tl.24.2512241200159.svg#arrow_down"></use></svg>
-					<div class="validation" for="ContactS3Form_ITM0_LeadTypeID" data-type="valueMissing">
-						Please make a selection.
+					<div id="bnc-contact-form">
+						<fieldset>
+							<ul class="flx-at-700-grd-sml">
+								<li class="half">
+									<div class="input-text">
+										<label for="bnc_firstName">First Name</label>
+										<input required type="text" id="bnc_firstName" class="ui-cms-input">
+									</div>
+								</li>
+								<li class="half">
+									<div class="input-text">
+										<label for="bnc_lastName">Last Name</label>
+										<input required type="text" id="bnc_lastName" class="ui-cms-input">
+									</div>
+								</li>
+								<li class="half">
+									<div class="input-text">
+										<label for="bnc_phone">Phone</label>
+										<input required type="tel" id="bnc_phone" class="ui-cms-input" placeholder="(555) 555-5555">
+									</div>
+								</li>
+								<li class="half">
+									<div class="input-text">
+										<label for="bnc_email">Email</label>
+										<input required type="email" id="bnc_email" class="ui-cms-input">
+									</div>
+								</li>
+								<li class="full">
+									<div class="input-text">
+										<label for="bnc_address">Address</label>
+										<input type="text" id="bnc_address" class="ui-cms-input">
+									</div>
+								</li>
+								<li class="sel full">
+									<div class="input-text">
+										<label for="bnc_leadType">Are you a new customer?</label>
+										<select id="bnc_leadType" class="ui-cms-select ui-cms-input">
+											<option value="">Select...</option>
+											<option value="1">Yes, I am a potential new customer</option>
+											<option value="11">No, I'm a current existing customer</option>
+											<option value="13">I'm neither.</option>
+										</select>
+									</div>
+								</li>
+								<li class="msg full">
+									<div class="input-text">
+										<label for="bnc_message">How can we help you?</label>
+										<textarea required id="bnc_message" class="ui-cms-input" rows="4"></textarea>
+									</div>
+								</li>
+								<li class="full">
+									<div class="inp-mrk">
+										<small>By submitting, you agree to receive text messages from BNC Builders Inc. at the number provided. Consent is not a condition of purchase. <a href="https://www.scorpion.co/acceptable-use-policy/" target="_blank" rel="nofollow"><u>Acceptable Use Policy</u></a></small>
+									</div>
+								</li>
+							</ul>
+						</fieldset>
+						<div class="mrg_tp-40">
+							<button class="btn form-btn v1" type="button" id="bnc_submitBtn">Send Message</button>
+						</div>
+						<div id="bnc_formStatus" style="margin-top: 1rem;"></div>
 					</div>
 				</div>
-			</li>	
-			<li class="msg full">
-				<div class="input-text">
-					<label for="ContactS3Form_ITM0_Message">How can we help you?</label>
-					<textarea required="required" type="text" id="ContactS3Form_ITM0_Message" class="ui-cms-input" name="ContactS3Form$ITM0$Message"></textarea>
-					<div class="validation" for="ContactS3Form_ITM0_Message" data-type="valueMissing">
-						Please enter a message.
-					</div>
-				</div>
-			</li>
-			<li class="captcha full">
-			    <div class="verify-cont">
-			        <span class="field-cap"></span>
-			    </div>
-			    <div class="input-text">
-				    <label class="contactlabel captcha" for="Verification"> Please enter the captcha above:</label>
-				        <input required class="verification" type="text" autocomplete="off">
-				        <input disabled class="hidden-cap" id="AField" style="display: none" value="Thanks" type="text" autocomplete="off">
-			    </div>
-			</li>  
-			<li class="full">
-				<div class="inp-mrk">
-					<input type="hidden" id="Consent" required="" checked="">
-					<small>By submitting, you agree to receive text messages from BNC Builders Inc. at the number provided, including those related to your inquiry, follow-ups, and review requests, via automated technology. 
-	Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency may vary. Reply STOP to cancel or HELP for assistance. 
-	<a href="https://www.scorpion.co/acceptable-use-policy/" target="_blank" rel="nofollow"><u>Acceptable Use Policy</u></a></small>
-				</div>
-			</li>
-		</ul>
-	</fieldset>
-	
-		<input id="ContactS3Form_ITM0_StreetAddress" type="hidden" class="ui-cms-input" name="ContactS3Form$ITM0$StreetAddress" value data-ga-target="address">
-		<input id="ContactS3Form_ITM0_City" type="hidden" class="ui-cms-input" name="ContactS3Form$ITM0$City" value data-ga-target="city">
-		<input id="ContactS3Form_ITM0_State" type="hidden" class="ui-cms-input" name="ContactS3Form$ITM0$State" value data-ga-target="state">
-		<input id="ContactS3Form_ITM0_ZipCode" type="hidden" class="ui-cms-input" name="ContactS3Form$ITM0$ZipCode" value data-ga-target="zipcode">
-	
-	<input id="ContactS3Form_ITM0_FFD6" type="hidden" class="ui-cms-input" name="ContactS3Form$ITM0$FFD6" value data-item="i" data-key="">
-	<div class="mrg_tp-40 ">
-	<button class="btn form-btn v1" type="submit" disabled id="ContactS3Form_ITM0_ctl16" name="ContactS3Form$ITM0$ctl16" data-commandname="Update">Send Message</button>
-	
-</div>
-</div>
-<script>
-    let captcha = '';
-    let single = '';
-    let captchaField = document.querySelectorAll('.field-cap');
-    let hiddenField = document.querySelectorAll('.hidden-cap');
-    let verificationField = document.querySelectorAll('.captcha .verification');
-    let submitButton = document.querySelectorAll('.form-btn');
-    console.log('hello', captcha, captchaField)           
-    function getLetters() {
-        captcha = Math.random()
-            .toString(36)
-            .toUpperCase()
-            .substring(2, 7);
-        single = captcha.split('');
-        if (!!captcha.match('0|O|1|A|E|O|U|I|L')) {
-            getLetters();
-        }
-   }
-    function placeCaps() {
-        getLetters();
-        captchaField.forEach((cfield) => {
-            cfield.innerText = captcha;
-        });
-    }
-    function validateCap() {
-        captchaField.forEach((cfield) => {
-            if (
-                verificationField.value.toLowerCase() ===
-                captcha.toLowerCase()
-            ) {
-                hiddenField.forEach((hfield) => {
-                    hfield.value = '';
-                    hfield.trigger('blur');
-                });
-            } else {
-                return;
-            }
-        });
-    }
-    placeCaps();       
-    for (let i=0; i < verificationField.length; i++) {
-        verificationField[i].addEventListener('change', ()=> {
-            console.log('test')
-            if (verificationField[i].value.toUpperCase() === captchaField[i].innerText) {
-                console.log('true')
-                submitButton[i].removeAttribute('disabled');
-                submitButton[i].classList.add('active');
-        } else {
-            console.log('false')
-        }          
-        })
-    }
-</script>
 			</div>
 		</div>
 		<picture class="sw-1280 half anm_fl" role="presentation">
-	
-	
-	<source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://https://res.cloudinary.com/dku1gnuat/image/upload/v1767218063/BNC-BUILDERS/assets_content_content-img.2505221032123.jpg.jpg"/>
-	<source media="(max-width: 1279px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://https://res.cloudinary.com/dku1gnuat/image/upload/v1767218063/BNC-BUILDERS/assets_content_content-img.2505221032123.jpg.jpg"/>
-	<img class="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="" data-src="https://res.cloudinary.com/dku1gnuat/image/upload/v1767218063/BNC-BUILDERS/assets_content_content-img.2505221032123.jpg.jpg">
-	
-</picture>
+			<img src="https://res.cloudinary.com/dku1gnuat/image/upload/v1767218063/BNC-BUILDERS/assets_content_content-img.2505221032123.jpg.jpg" alt="">
+		</picture>
 	</div>
 </section>
-</form></main>
+</main>
+<script>
+(function() {
+	var btn = document.getElementById('bnc_submitBtn');
+	var status = document.getElementById('bnc_formStatus');
+
+	btn.addEventListener('click', async function() {
+		var firstName = document.getElementById('bnc_firstName').value.trim();
+		var lastName = document.getElementById('bnc_lastName').value.trim();
+		var phone = document.getElementById('bnc_phone').value.trim();
+		var email = document.getElementById('bnc_email').value.trim();
+		var address = document.getElementById('bnc_address').value.trim();
+		var leadType = document.getElementById('bnc_leadType').value;
+		var message = document.getElementById('bnc_message').value.trim();
+
+		if (!firstName || !lastName || !phone || !email || !message) {
+			status.innerHTML = '<p style="color: #f44336;">Please fill in all required fields.</p>';
+			return;
+		}
+
+		btn.disabled = true;
+		btn.textContent = 'Sending...';
+		status.innerHTML = '';
+
+		try {
+			var response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					firstName: firstName,
+					lastName: lastName,
+					phone: phone,
+					email: email,
+					address: address,
+					leadType: leadType,
+					message: message
+				})
+			});
+
+			var result = await response.json();
+
+			if (response.ok) {
+				status.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">Thank you! Your message has been sent successfully. We will contact you soon.</p>';
+				document.getElementById('bnc_firstName').value = '';
+				document.getElementById('bnc_lastName').value = '';
+				document.getElementById('bnc_phone').value = '';
+				document.getElementById('bnc_email').value = '';
+				document.getElementById('bnc_address').value = '';
+				document.getElementById('bnc_leadType').value = '';
+				document.getElementById('bnc_message').value = '';
+			} else {
+				status.innerHTML = '<p style="color: #f44336;">Error: ' + (result.error || 'Failed to send. Please try again.') + '</p>';
+			}
+		} catch (err) {
+			status.innerHTML = '<p style="color: #f44336;">Error: Failed to send. Please try again.</p>';
+		}
+
+		btn.disabled = false;
+		btn.textContent = 'Send Message';
+	});
+})();
+</script>
 	<footer id="FooterZone"><section class="ftr v1 dk-bg" id="FooterV1" universal_="true" data-onvisible="anm">
 	
 	

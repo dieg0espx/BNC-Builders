@@ -1211,16 +1211,6 @@ window.$consentState={analytics,marketing};
 					</div>
 				</div>
 			</li>
-			<li class="captcha full">
-			    <div class="verify-cont">
-			        <span class="field-cap"></span>
-			    </div>
-			    <div class="input-text">
-				    <label class="contactlabel captcha" for="Verification"> Please enter the captcha above:</label>
-				        <input required class="verification" type="text" autocomplete="off">
-				        <input disabled class="hidden-cap" id="AField" style="display: none" value="Thanks" type="text" autocomplete="off">
-			    </div>
-			</li>  
 			<li class="full">
 				<div class="inp-mrk">
 					<input type="hidden" id="Consent" required="" checked="">
@@ -1239,63 +1229,11 @@ window.$consentState={analytics,marketing};
 	
 	<input id="ContactS7Form_ITM0_FFD6" type="hidden" class="ui-cms-input" name="ContactS7Form$ITM0$FFD6" value data-item="i" data-key="">
 	<div class="mrg_tp-40 ">
-	<button class="btn form-btn v1" type="submit" disabled id="ContactS7Form_ITM0_ctl16" name="ContactS7Form$ITM0$ctl16" data-commandname="Update">Send Message</button>
+	<button class="btn form-btn v1" type="submit" id="ContactS7Form_ITM0_ctl16" name="ContactS7Form$ITM0$ctl16" data-commandname="Update">Send Message</button>
 	
 </div>
 </div>
-<script>
-    let captcha = '';
-    let single = '';
-    let captchaField = document.querySelectorAll('.field-cap');
-    let hiddenField = document.querySelectorAll('.hidden-cap');
-    let verificationField = document.querySelectorAll('.captcha .verification');
-    let submitButton = document.querySelectorAll('.form-btn');
-    console.log('hello', captcha, captchaField)           
-    function getLetters() {
-        captcha = Math.random()
-            .toString(36)
-            .toUpperCase()
-            .substring(2, 7);
-        single = captcha.split('');
-        if (!!captcha.match('0|O|1|A|E|O|U|I|L')) {
-            getLetters();
-        }
-   }
-    function placeCaps() {
-        getLetters();
-        captchaField.forEach((cfield) => {
-            cfield.innerText = captcha;
-        });
-    }
-    function validateCap() {
-        captchaField.forEach((cfield) => {
-            if (
-                verificationField.value.toLowerCase() ===
-                captcha.toLowerCase()
-            ) {
-                hiddenField.forEach((hfield) => {
-                    hfield.value = '';
-                    hfield.trigger('blur');
-                });
-            } else {
-                return;
-            }
-        });
-    }
-    placeCaps();       
-    for (let i=0; i < verificationField.length; i++) {
-        verificationField[i].addEventListener('change', ()=> {
-            console.log('test')
-            if (verificationField[i].value.toUpperCase() === captchaField[i].innerText) {
-                console.log('true')
-                submitButton[i].removeAttribute('disabled');
-                submitButton[i].classList.add('active');
-        } else {
-            console.log('false')
-        }          
-        })
-    }
-</script>
+
 			</div>
 		</div>
 		<div class="half bdr-rds-dsk bx-sdw-dsk anm_hlf-r mbl-fx">

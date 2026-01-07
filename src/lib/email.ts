@@ -105,9 +105,15 @@ ${data.message}
 This message was sent from the BNC Builders website contact form.
   `.trim();
 
+  const recipients = (process.env.EMAIL_TO || "info@bncbuildersinc.com")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean)
+    .join(", ");
+
   await transporter.sendMail({
     from: process.env.EMAIL_FROM || "noreply@bncbuildersinc.com",
-    to: process.env.EMAIL_TO || "info@bncbuildersinc.com",
+    to: recipients,
     replyTo: data.email,
     subject: `New Contact Form: ${data.firstName} ${data.lastName}`,
     text,
@@ -166,9 +172,15 @@ ${data.message}
 This message was sent from the BNC Builders careers page.
   `.trim();
 
+  const recipients = (process.env.EMAIL_CAREERS_TO || process.env.EMAIL_TO || "careers@bncbuildersinc.com")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean)
+    .join(", ");
+
   await transporter.sendMail({
     from: process.env.EMAIL_FROM || "noreply@bncbuildersinc.com",
-    to: process.env.EMAIL_CAREERS_TO || process.env.EMAIL_TO || "careers@bncbuildersinc.com",
+    to: recipients,
     replyTo: data.email,
     subject: `New Job Application: ${data.firstName} ${data.lastName}`,
     text,
@@ -256,9 +268,15 @@ ${data.message ? `Additional Notes:\n${data.message}` : ""}
 This message was sent from the BNC Builders customer referral program page.
   `.trim();
 
+  const recipients = (process.env.EMAIL_TO || "info@bncbuildersinc.com")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean)
+    .join(", ");
+
   await transporter.sendMail({
     from: process.env.EMAIL_FROM || "noreply@bncbuildersinc.com",
-    to: process.env.EMAIL_TO || "info@bncbuildersinc.com",
+    to: recipients,
     replyTo: data.referrerEmail,
     subject: `New Customer Referral from ${data.referrerName}`,
     text,
